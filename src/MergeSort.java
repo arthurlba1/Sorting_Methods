@@ -4,7 +4,7 @@ public class MergeSort implements Sort {
     
     @Override
     public int[] sort(int[] nos) {
-        int beg = nos[0];
+        int beg = 0;
         int end = nos.length;
 
         if(beg < end){
