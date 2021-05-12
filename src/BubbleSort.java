@@ -1,5 +1,8 @@
 package src;
 
-public class BubbleSort {
-    
+public class BubbleSort implements Sort{
+    @Override
+    public int[] sort(int[] nos) {
+        return nos;
+    }
 }

@@ -1,5 +1,5 @@
 package src;
 
-public class Sort {
-    
+public interface Sort {
+    int[] sort(int[] nos);
 }
