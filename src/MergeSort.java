@@ -4,54 +4,46 @@ public class MergeSort implements Sort {
     
     @Override
     public int[] sort(int[] nos) {
-        int beg = 0;
-        int end = nos.length;
+        if(nos.length > 1){
+            int mid = nos.length/2;
 
-        if(beg < end){
-            int mid = (beg+end)/2;
-            sort(nos);
-            beg = mid +1;
-            sort(nos);
-            Merge(nos, beg, mid, end);
+            int[]left = new int[mid];
+            for(int i = 0; i < mid; i++){
+                left[i] = nos[i];
+            }
+            int[] right = new int[nos.length - mid];
+            for(int i = mid; i < nos.length; i++)
+            {
+                right[i - mid] = nos[i];
+            }
+            sort(left);
+            sort(right);
+
+            int i = 0;
+            int j = 0;
+            int k = 0;
+
+            while(i < left.length && j < right.length){
+                if(left[i] < right[j]){
+                    nos[k] = left[i];
+                    i++;
+                } else {
+                    nos[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+            while(i < left.length){
+                nos[k] = left[i];
+                i++;
+                k++;
+            }
+            while(j < right.length){
+                nos[k] = right[j];
+                j++;
+                k++;
+            }
         }
         return nos;
-    }
-    private void Merge(int[] nos, int beg, int mid, int end){
-        int l = mid - beg + 1;  
-        int r = end - mid;  
-  
-        int LeftArray[] = new int [l];  
-        int RightArray[] = new int [r];  
-
-        for (int i=0; i<l; i++){
-            LeftArray[i] = nos[beg + i];
-        }
-
-        for(int j=0;j<r; j++){
-            RightArray[j] = nos[mid + 1+ j];
-        }
-
-        int i = 0, j = 0;  
-        int k = beg;  
-        while (i<l && j<r){
-            if (LeftArray[i] <= RightArray[j]){
-                nos[k] = LeftArray[i];  
-                i++;
-            } else {
-                nos[k] = RightArray[j];  
-                j++;  
-            }
-            k++;
-        }
-        while (i<l){
-            nos[k] = LeftArray[i];  
-            i++;  
-            k++;  
-        }
-        while (j<r){
-            nos[k] = RightArray[j];  
-            j++;  
-            k++;  
-        }
     }
 }
