@@ -12,3 +12,6 @@ This amount of work has to do with time, but it can also refer to the amount of 
 
 In the image below you can check the time and space spent by each verified algorithm and note, that the time in nanoseconds matches the time spent.
 ![Banner](/time-space-complexity.png?raw=true)
+
+
+Template of project by Waldemar Pires Ferreira Neto. git: https://github.com/netuh
